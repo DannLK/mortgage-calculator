@@ -1,0 +1,66 @@
+<div *ngIf="mortgageResults" class="mortgage-results-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title class="title">Mortgage Summary</mat-card-title>
+    </mat-card-header>
+    <div class="mortgage-results">
+      <mat-card-content>
+        <div class="amortization-period-results">
+          <p>Over the 25-year amortization period, you will:</p>
+          <ul>
+            <li>
+              have made
+              {{ mortgageResults.numMonthlyPayments | number: "1.0-0" }} ({{
+                mortgageResults.paymentFrequency | number: "1.0-0"
+              }}x a year) payments of
+              {{ mortgageResults.monthlyPayment | number: "1.0-2" }}.
+            </li>
+            <li>
+              have payed
+              {{ mortgageResults.principlePayment | number: "1.0-2" }} in
+              principle,
+              {{ mortgageResults.interestPayment | number: "1.0-2" }} in
+              interest, for a total of
+              {{ mortgageResults.totalPayment | number: "1.0-2" }}
+            </li>
+          </ul>
+        </div>
+        <div class="term-period-results">
+          <p>
+            Over the {{ mortgageResults.term | number: "1.0-0" }}-year term, you
+            will:
+          </p>
+          <ul>
+            <li>
+              have made
+              {{ mortgageResults.numMonthlyTermPayments | number: "1.0-0" }} ({{
+                mortgageResults.paymentFrequency | number: "1.0-0"
+              }}x a year) payments of
+              {{ mortgageResults.monthlyTermPayment | number: "1.0-2" }}.
+            </li>
+            <li>
+              have payed
+              {{ mortgageResults.principleTermPayment | number: "1.0-2" }} in
+              principle,
+              {{ mortgageResults.interestTermPayment | number: "1.0-2" }} in
+              interest, for a total of
+              {{ mortgageResults.totalTermPayment | number: "1.0-2" }}
+            </li>
+          </ul>
+        </div>
+        <div class="term-end-balance-results">
+          <p>
+            At the end of your {{ mortgageResults.term | number: "1.0-0" }}-year
+            term, you will have a balance of:
+          </p>
+          <ul>
+            <li>
+              have a balance of
+              {{ mortgageResults.termEndBalance | number: "1.0-2" }}
+            </li>
+          </ul>
+        </div>
+      </mat-card-content>
+    </div>
+  </mat-card>
+</div>
