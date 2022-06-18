@@ -7,8 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { configService } from './services/config.service';
 import { MortgageResultsComponent } from './components/mortgage-results/mortgage-results.component';
 import { mortgageService } from './services/mortgage.service';
-
-
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     MortgageCalculatorComponent,
@@ -18,7 +17,8 @@ import { mortgageService } from './services/mortgage.service';
   imports: [
     CommonModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NoopAnimationsModule
   ],
   exports: [
     MortgageCalculatorComponent,

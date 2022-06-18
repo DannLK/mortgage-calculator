@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { MortgageCalculatorModule } from '../../mortgage-calculator.module';
 import { MortgageResultsComponent } from './mortgage-results.component';
 
 describe('MortgageResultsComponent', () => {
@@ -8,7 +8,8 @@ describe('MortgageResultsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MortgageResultsComponent ]
+      declarations: [ MortgageResultsComponent ],
+      imports: [MortgageCalculatorModule],
     })
     .compileComponents();
   });
