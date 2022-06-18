@@ -44,15 +44,19 @@ export class MortgageFormComponent implements OnInit {
           formGroup[input.name] =
             input.name === 'interestRate'
               ? new FormControl(input.initialValue, [
-                  Validators.pattern('^(0*[1-9][0-9]*(\.[0-9]+)?|0+\.[0-9]*[1-9][0-9]*)$'),
+                  Validators.pattern(
+                    '^(0*[1-9][0-9]*(.[0-9]+)?|0+.[0-9]*[1-9][0-9]*)$'
+                  ),
                   Validators.maxLength(input.maxLength!),
                   Validators.required,
+                  Validators.max(input.maxValue!),
                 ])
               : new FormControl(input.initialValue, [
                   Validators.pattern('^-?[0-9]\\d*(\\.\\d{1,2})?$'),
                   Validators.maxLength(input.maxLength!),
                   Validators.required,
                 ]);
+
           break;
         case mortgageFormInputType.dropdown:
           formGroup[input.name] = new FormControl(
@@ -70,10 +74,11 @@ export class MortgageFormComponent implements OnInit {
       }
     });
     this.mortgageForm = this.formBuilder.group(formGroup);
-    console.log('formBuilder: ', this.mortgageForm.value);
+    // console.log('formBuilder: ', this.mortgageForm.value);
   }
 
   public onSubmit(): void {
+    // console.log('submit form:' , this.mortgageForm);
     if (this.mortgageForm.valid) {
       console.log('valid: ', this.mortgageForm.value);
       this.mortgageResults = this.mortgageService.calculateMortgage(
@@ -83,4 +88,8 @@ export class MortgageFormComponent implements OnInit {
       console.log('not valid');
     }
   }
+
+  public checkError = (controlName: string, errorName: string) => {
+    return this.mortgageForm.controls[controlName].hasError(errorName);
+  };
 }

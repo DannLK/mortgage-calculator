@@ -16,19 +16,20 @@ export interface mortgageFormInputInterface{
   dropdownOptions?: mortgageFormDropdownInterface[];
   validationError?: string;
   maxLength?: number;
+  maxValue?: number;
   postfix?: string;
 }
 
 export interface mortgageResultsInterface{
-  numMonthlyPayments: number;
+  numPayments: number;
   paymentFrequency: number;
-  monthlyPayment: number;
+  paymentAmount: number;
   principlePayment: number;
   interestPayment: number;
   totalPayment: number;
   term: number;
-  numMonthlyTermPayments: number;
-  monthlyTermPayment: number;
+  numTermPayments: number;
+  termPayment: number;
   principleTermPayment: number;
   interestTermPayment: number;
   totalTermPayment: number;

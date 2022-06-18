@@ -17,6 +17,7 @@ export const mortgageFormConfig: mortgageFormInputInterface[]  = [
       initialValue: 5,
       validationError: 'Please enter a valid interest rate.',
       maxLength: 5,
+      maxValue: 100,
       postfix: '%'
     },
     {

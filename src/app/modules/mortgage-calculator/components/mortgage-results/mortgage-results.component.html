@@ -10,10 +10,10 @@
           <ul>
             <li>
               have made
-              {{ mortgageResults.numMonthlyPayments | number: "1.0-0" }} ({{
+              {{ mortgageResults.numPayments | number: "1.0-0" }} ({{
                 mortgageResults.paymentFrequency | number: "1.0-0"
               }}x a year) payments of
-              {{ mortgageResults.monthlyPayment | number: "1.0-2" }}.
+              {{ mortgageResults.paymentAmount | number: "1.0-2" }}.
             </li>
             <li>
               have payed
@@ -33,10 +33,10 @@
           <ul>
             <li>
               have made
-              {{ mortgageResults.numMonthlyTermPayments | number: "1.0-0" }} ({{
+              {{ mortgageResults.numTermPayments | number: "1.0-0" }} ({{
                 mortgageResults.paymentFrequency | number: "1.0-0"
               }}x a year) payments of
-              {{ mortgageResults.monthlyTermPayment | number: "1.0-2" }}.
+              {{ mortgageResults.termPayment | number: "1.0-2" }}.
             </li>
             <li>
               have payed
@@ -51,7 +51,7 @@
         <div class="term-end-balance-results">
           <p>
             At the end of your {{ mortgageResults.term | number: "1.0-0" }}-year
-            term, you will have a balance of:
+            term, you will:
           </p>
           <ul>
             <li>

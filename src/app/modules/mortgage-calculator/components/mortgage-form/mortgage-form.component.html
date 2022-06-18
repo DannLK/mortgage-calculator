@@ -10,10 +10,16 @@
             [maxLength]="input.maxLength"
           />
           <mat-icon matSuffix>{{ input.postfix }}</mat-icon>
+          <mat-error *ngIf="checkError(input.name, 'required')">
+            Please enter a value for {{ input.label }}
+          </mat-error>
+          <mat-error *ngIf="checkError(input.name, 'max')">
+            Please enter a value less than or equal to {{ input.maxValue }}
+          </mat-error>
         </mat-form-field>
       </ng-container>
       <ng-template #dropdown>
-        <mat-form-field>
+        <mat-form-field class="mortgage-form-dropdowns">
           <mat-label>{{ input.label }}</mat-label>
           <mat-select [formControlName]="input.name">
             <mat-option
