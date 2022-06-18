@@ -80,8 +80,6 @@ export class mortgageService {
       termEndBalance: termEndBalance,
     } 
 
-    console.log(mortgageDetails);
-
     return mortgageDetails;
   }
 }

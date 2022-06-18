@@ -74,19 +74,15 @@ export class MortgageFormComponent implements OnInit {
       }
     });
     this.mortgageForm = this.formBuilder.group(formGroup);
-    // console.log('formBuilder: ', this.mortgageForm.value);
+
   }
 
   public onSubmit(): void {
-    // console.log('submit form:' , this.mortgageForm);
     if (this.mortgageForm.valid) {
-      console.log('valid: ', this.mortgageForm.value);
       this.mortgageResults = this.mortgageService.calculateMortgage(
         this.mortgageForm.value
       );
-    } else {
-      console.log('not valid');
-    }
+    } 
   }
 
   public checkError = (controlName: string, errorName: string) => {
