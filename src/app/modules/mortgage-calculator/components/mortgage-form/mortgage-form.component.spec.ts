@@ -30,6 +30,7 @@ describe('MortgageFormComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(MortgageFormComponent);
     component = fixture.componentInstance;
+    fakeMortgageService.calculateMortgage.calls.reset();
     fixture.detectChanges();
   });
 
@@ -45,5 +46,13 @@ describe('MortgageFormComponent', () => {
     component.onSubmit();
     expect(fakeMortgageService.calculateMortgage).toHaveBeenCalled();
   })
+
+  it('should NOT call calculateMortgage method in mortgageService when invalid form is submitted', () => {
+    component.mortgageForm.patchValue({mortgageAmount: null });
+    component.onSubmit();
+    expect(fakeMortgageService.calculateMortgage).not.toHaveBeenCalled();
+  })
+
+
 
 });
