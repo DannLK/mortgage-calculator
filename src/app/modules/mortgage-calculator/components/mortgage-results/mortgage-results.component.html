@@ -32,9 +32,8 @@
           <ul>
             <li>
               have made
-              {{ mortgageResults.numTermPayments | number: "1.0-0" }} ({{
-                mortgageResults.paymentFrequency | number: "1.0-0"
-              }}x a year) payments of
+              {{ mortgageResults.numTermPayments | number: "1.0-0" }}
+              {{ mortgageResults.paymentFrequencyLabel }} payments of
               {{ mortgageResults.termPayment | number: "1.0-2" }} .
             </li>
             <li>

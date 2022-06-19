@@ -85,7 +85,7 @@ export class MortgageFormComponent implements OnInit {
     } 
   }
 
-  public checkError = (controlName: string, errorName: string) => {
+  public checkError (controlName: string, errorName: string){
     return this.mortgageForm.controls[controlName].hasError(errorName);
   };
 }
