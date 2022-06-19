@@ -64,8 +64,8 @@ export const mortgageFormConfig: mortgageFormInputInterface[]  = [
       type: mortgageFormInputType.dropdown,
       dropdownOptions: [
         {label: 'Weekly', value: 52},
-        {label: 'Bi-Weekly', value: 26},
-        {label: 'Semi-Monthly', value: 24},
+        {label: 'Bi-Weekly (every 2 weeks)', value: 26},
+        {label: 'Semi-Monthly (24x per year)', value: 24},
         {label: 'Monthly (12x per year)', value: 12}
       ],
       initialValue: 12
