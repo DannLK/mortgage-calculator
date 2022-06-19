@@ -1,3 +1,4 @@
+import { mortgageFormConfig } from "../configs/mortgage-form.config";
 import { mortgageResultsInterface } from "../models/mortgage.interface";
 import { mortgageService } from "./mortgage.service";
 
@@ -15,14 +16,19 @@ const mockMortgageReturn: mortgageResultsInterface = {
   principleTermPayment: 20000,
   interestTermPayment: 15075.402490478808,
   totalTermPayment: 35075.40249047881,
-  termEndBalance: 80000
+  termEndBalance: 80000,
+  amortizationPeriodLabel: "25 years",
+  paymentFrequencyLabel: "Monthly (12x per year)",
+  termLabel: "5 years"
 }
 
 describe('mortgageService tests', () => {
   let service: mortgageService
   let mortgageDetails: mortgageResultsInterface
+  let fakeConfigService = jasmine.createSpyObj('configService', ["getConfig"])
+  fakeConfigService.getConfig = jasmine.createSpy().and.returnValue(mortgageFormConfig);
   beforeEach(() => { 
-    service = new mortgageService(); 
+    service = new mortgageService(fakeConfigService); 
   });
 
   it('mortgage form intial values return check', () => {
@@ -34,6 +40,9 @@ describe('mortgageService tests', () => {
     expect(mortgageDetails.principlePayment).toEqual(mockMortgageReturn.principlePayment)
     expect(mortgageDetails.term).toEqual(mockMortgageReturn.term)
     expect(mortgageDetails.numTermPayments).toEqual(mockMortgageReturn.numTermPayments)
+    expect(mortgageDetails.amortizationPeriodLabel).toEqual(mockMortgageReturn.amortizationPeriodLabel)
+    expect(mortgageDetails.paymentFrequencyLabel).toEqual(mockMortgageReturn.paymentFrequencyLabel)
+    expect(mortgageDetails.termLabel).toEqual(mockMortgageReturn.termLabel)
 
     // The values below can have decimal places, therefore we are checking to the nearest whole number in case of rounding errors.
     expect(mortgageDetails.paymentAmount).toBeCloseTo(mockMortgageReturn.paymentAmount, 1)

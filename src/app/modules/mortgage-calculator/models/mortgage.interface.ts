@@ -34,4 +34,7 @@ export interface mortgageResultsInterface{
   interestTermPayment: number;
   totalTermPayment: number;
   termEndBalance: number;
+  amortizationPeriodLabel: string;
+  paymentFrequencyLabel: string;
+  termLabel: string;
 }

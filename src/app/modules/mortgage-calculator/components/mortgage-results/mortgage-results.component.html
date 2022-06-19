@@ -6,19 +6,21 @@
     <div class="mortgage-results">
       <mat-card-content>
         <div class="amortization-period-results">
-          <p>Over the 25-year amortization period, you will:</p>
+          <p>
+            Over the {{ mortgageResults.amortizationPeriodLabel }} amortization
+            period, you will:
+          </p>
           <ul>
             <li>
               have made
-              {{ mortgageResults.numPayments | number: "1.0-0" }} ({{
-                mortgageResults.paymentFrequency | number: "1.0-0"
-              }}x a year) payments of
+              {{ mortgageResults.numPayments | number: "1.0-0" }}
+              {{ mortgageResults.paymentFrequencyLabel }} payments of
               {{ mortgageResults.paymentAmount | number: "1.0-2" }} .
             </li>
             <li>
               have payed
               {{ mortgageResults.principlePayment | number: "1.0-2" }} in
-              principle .
+              principle,
               {{ mortgageResults.interestPayment | number: "1.0-2" }} in
               interest, for a total of
               {{ mortgageResults.totalPayment | number: "1.0-2" }} .
@@ -26,10 +28,7 @@
           </ul>
         </div>
         <div class="term-period-results">
-          <p>
-            Over the {{ mortgageResults.term | number: "1.0-0" }}-year term, you
-            will:
-          </p>
+          <p>Over the {{ mortgageResults.termLabel }} term, you will:</p>
           <ul>
             <li>
               have made
@@ -50,8 +49,8 @@
         </div>
         <div class="term-end-balance-results">
           <p>
-            At the end of your {{ mortgageResults.term | number: "1.0-0" }}-year
-            term, you will:
+            At the end of your {{ mortgageResults.termLabel }}-year term, you
+            will:
           </p>
           <ul>
             <li>
